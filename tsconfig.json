@@ -22,7 +22,21 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "device": [
+        "dist/device"
+      ],
+      "patient": [
+        "dist/patient"
+      ],
+      "tenant": [
+        "dist/tenant"
+      ],
+      "user": [
+        "dist/user"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
