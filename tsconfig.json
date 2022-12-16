@@ -24,6 +24,9 @@
       "dom"
     ],
     "paths": {
+      "@common/ui/*": [
+        "dist/common/ui/*"
+      ],
       "@common/ui": [
         "dist/common/ui"
       ],
