@@ -1,3 +1,4 @@
+import { HeaderDirective } from './header/header.directive';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
@@ -15,7 +16,8 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [
     LayoutComponent,
     SideNavComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderDirective
   ],
   imports: [
     RouterModule,
@@ -27,6 +29,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatIconModule,
     MatToolbarModule
   ],
-  exports: [LayoutComponent],
+  exports: [
+    LayoutComponent,
+    HeaderComponent,
+    HeaderDirective
+  ],
 })
 export class LayoutModule { }

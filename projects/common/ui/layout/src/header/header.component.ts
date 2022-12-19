@@ -1,3 +1,4 @@
+import { HeaderService } from './header.service';
 import { Component } from "@angular/core";
 
 @Component({
@@ -7,5 +8,7 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent {
-    constructor() { }
+    constructor(
+        public headerService: HeaderService
+    ) { }
 }

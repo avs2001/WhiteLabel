@@ -36,24 +36,8 @@
 
 	<mat-sidenav-content>
 		<kbm-header></kbm-header>
-		<ng-content></ng-content>
+		<div class="content">
+			<ng-content></ng-content>
+		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- <mat-sidenav-container>
-	<mat-sidenav [opened]="opened" mode="side" [class.close]="!opened">
-		<img (click)="opened = !opened" src="/assets/icons/sidenav-close.svg">
-		<mat-list-item>
-			<div class="item">
-				<button mat-icon-button>
-					<mat-icon mat-list-icon>home</mat-icon>
-				</button>
-				<a *ngIf="opened">item one</a>
-			</div>
-		</mat-list-item>
-	</mat-sidenav>
-	<mat-sidenav-content [class.close]="!opened">
-		<kbm-header></kbm-header>
-		<ng-content></ng-content>
-	</mat-sidenav-content>
-</mat-sidenav-container> -->
