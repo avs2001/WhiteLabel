@@ -7,5 +7,10 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "scripts": {
+    "build:sass": "sass styles/styles.scss assets/styles.css",
+    "build:schematics": "tsc -p tsconfig.schematics.json",
+    "postbuild:schematics": "copyfiles schematics/collection.json ../../../dist/common/ui/"
   }
 }

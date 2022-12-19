@@ -159,9 +159,15 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/admin-portal/src/favicon.ico",
-              "projects/admin-portal/src/assets"
+              "projects/admin-portal/src/assets",
+              {
+                "glob": "**/*",
+                "input": "dist/common/ui/assets",
+                "output": "assets"
+              }
             ],
             "styles": [
+              "theme/styles.scss",
               "projects/admin-portal/src/styles.scss"
             ],
             "scripts": []
