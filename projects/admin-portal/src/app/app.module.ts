@@ -4,7 +4,7 @@ import { APUserComponent } from './pages/user/user.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HeaderComponent, LayoutModule } from '@common/ui/layout';
+import { HeaderComponent, HeaderDirective } from '@common/ui/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APDeviceComponent } from './pages/device/device.component';
@@ -24,7 +24,8 @@ import { APLayoutComponent } from './components/layout/layout.component';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
+    HeaderComponent,
+    HeaderDirective,
     APLayoutComponent,
   ],
   bootstrap: [AppComponent]

@@ -2,7 +2,8 @@ import { Directive, TemplateRef, Input } from '@angular/core';
 import { HeaderService } from './header.service';
 
 @Directive({
-    selector: '[kbmLayoutHeaderTitle]'
+    selector: '[kbmLayoutHeaderTitle]',
+    standalone: true
 })
 export class HeaderDirective {
 
