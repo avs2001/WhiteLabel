@@ -14,7 +14,6 @@ import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     LayoutComponent,
-    HeaderComponent,
     HeaderDirective
   ],
   imports: [
@@ -25,7 +24,8 @@ import { BrowserModule } from '@angular/platform-browser';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HeaderComponent,
   ],
   exports: [
     LayoutComponent,

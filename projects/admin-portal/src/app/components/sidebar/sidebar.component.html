@@ -1,0 +1,34 @@
+<!-- <nav>
+    <a href="">
+      <span class="icon"></span>
+      <span class="label">Home</span>
+    </a>
+    <a href="">
+      <span class="icon"></span>
+      <span class="label">User</span>
+    </a>
+    <a href="">
+      <span class="icon"></span>
+      <span class="label">Patient</span>
+    </a>
+  </nav>
+  
+  
+   -->
+
+<mat-nav-list>
+  <mat-list-item class="m-h-70" (click)="open = !open">
+    <div class="item logo-item">
+      <img *ngIf="open" class="logo" [src]="clientLogoIcon">
+      <img [class.rotate-180]="!open" class="item-img" src="/assets/icons/sidenav-close.svg">
+    </div>
+  </mat-list-item>
+  <mat-list-item *ngFor="let navigationItem of navigationItems"
+    [class]="navigationItem.matListItemExtraClass?.join(' ')" (click)="navigationItem.action()"
+    routerLinkActive="active">
+    <div class="item">
+      <img class="item-img" [src]="navigationItem.icon">
+      <div class="item-txt" mat-line *ngIf="open">{{navigationItem.txt}}</div>
+    </div>
+  </mat-list-item>
+</mat-nav-list>
