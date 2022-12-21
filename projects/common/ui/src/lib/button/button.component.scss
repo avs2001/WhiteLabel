@@ -1,0 +1,23 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+@import './button-style-solid';
+@import './button-style-outlined';
+@import './button-style-transparent';
+@import './button-size';
+@import './button-shape';
+
+:host {
+  box-sizing: border-box;
+  font-weight: 500;
+  display: inline-block;
+  color: #FFF;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  // transition: background 0.2s, border 0.2s;
+  @include generate-solid-buttons;
+  @include generate-outlined-buttons;
+  @include generate-transparent-buttons;
+  @include generate-sized-buttons;
+  @include generate-shaped-buttons;
+}

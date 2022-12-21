@@ -1,0 +1,40 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+@mixin generate-button-transparent($color) {
+  color: $color;
+
+  &:hover {
+    color: darken($color, 10%);
+  }
+
+  &:active {
+    color: darken($color, 12%);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    color: lighten($color, 15%);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+@mixin generate-transparent-buttons {
+  &.button-style-transparent {
+    &.button-color-main {
+      @include generate-button-transparent($main)
+    }
+
+    &.button-color-sub-main {
+      @include generate-button-transparent($sub-main)
+    }
+    &.button-color-light {
+      @include generate-button-transparent($light)
+    }
+
+    &.button-color-transparent {
+      @include generate-button-transparent($transparent)
+    }
+  }
+}

@@ -12,6 +12,11 @@ table.main-list {
 }
 
 table.main-list tr,
+table.main-list th {
+  cursor: pointer;
+}
+
+table.main-list tr,
 table.main-list th,
 table.main-list td {
   border-right: 0;
@@ -37,9 +42,11 @@ table.main-list>tfoot:not(:last-child) {
   border-bottom: var(--border);
 }
 
-table.main-list th,
-table.main-list td {
+table.main-list th {
   padding: 20px;
+}
+table.main-list td {
+  padding: 10px 20px;
 }
 
 table.main-list th {
@@ -51,8 +58,8 @@ table.main-list th {
 
 table.main-list td {
   color: var(--main-color);
+  font-weight: 500;
   font-size: 14px;
-  padding: 20px;
 }
 
 table.main-list td.list-main-column {

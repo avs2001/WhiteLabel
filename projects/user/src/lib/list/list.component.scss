@@ -2,3 +2,45 @@
   width: 100%;
   margin-top: 20px;
 }
+
+ngb-pagination ::ng-deep ul>li:not(.active)>a {
+  // background-color: red !important;
+  color: var(--light-color) !important;
+}
+
+ngb-pagination ::ng-deep ul>li.active>a {
+  background-color: white !important;
+  font-weight: bold !important;
+  color: var(--main-color) !important;
+}
+
+ngb-pagination ::ng-deep ul>li>a {
+  border-color: transparent !important;
+  font-size: 12px !important;
+
+}
+
+ngb-pagination ::ng-deep ul {
+  margin-bottom: 0 !important;
+  align-items: center !important;
+}
+
+.list-footer {
+  font-weight: 500;
+  align-items: center;
+  color: var(--light-color);
+}
+
+.list-footer-left ::ng-deep{
+  display: flex;
+}
+
+.f-s-12 {
+  font-size: 12px !important;
+}
+
+.items-per-page {
+  font-size: 12px !important;
+  color: var(--main-color);
+  font-weight: bold;
+}

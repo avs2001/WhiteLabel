@@ -11,7 +11,8 @@
 <div>
     <kbm-user-list>
         <ng-container *kbmListActions="let row">
-            <button>EDIT</button>
+            <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL" [color]="ButtonColor.LIGHT">View</div>
+ 
         </ng-container>
     </kbm-user-list>
 </div>

@@ -1,46 +1,106 @@
-<table cdk-table [dataSource]="dataSource" class="main-list">
+<div class="form-inline">
+  <div class="form-group">
+    <div class="input-group mr-3">
+      <input type="text" class="form-control" placeholder="Search..." [formControl]="searchFormControl">
+      <!-- <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="searchFormControl.setValue('')">
+          x
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<table cdk-table [dataSource]="dataOnPage$" class="main-list">
   <ng-container cdkColumnDef="username">
-    <th cdk-header-cell *cdkHeaderCellDef> Username </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('username')">
+      Username
+      <span *ngIf="sortKey$.value === 'username'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element" class="list-main-column"> {{element.username}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="firstName">
-    <th cdk-header-cell *cdkHeaderCellDef> First Name </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('firstName')"> 
+      First Name 
+      <span *ngIf="sortKey$.value === 'firstName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.firstName}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="lastName">
-    <th cdk-header-cell *cdkHeaderCellDef> Last Name </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastName')"> 
+      Last Name 
+      <span *ngIf="sortKey$.value === 'lastName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.lastName}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="email">
-    <th cdk-header-cell *cdkHeaderCellDef> Email </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('email')"> 
+      Email
+      <span *ngIf="sortKey$.value === 'email'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="userType">
-    <th cdk-header-cell *cdkHeaderCellDef> Role </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('userType')"> 
+      Role
+      <span *ngIf="sortKey$.value === 'userType'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.userType}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="isActive">
-    <th cdk-header-cell *cdkHeaderCellDef> Active </th>
-    <td cdk-cell *cdkCellDef="let element"> {{element.isActive | yesNo }} </td>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('isActive')"> 
+      Active
+      <span *ngIf="sortKey$.value === 'isActive'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.isActive | yesNo}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="lastLoginTime">
-    <th cdk-header-cell *cdkHeaderCellDef> Last Login Time </th>
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastLoginTime')"> 
+      Last Login Time
+      <span *ngIf="sortKey$.value === 'lastLoginTime'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
+    </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.lastLoginTime | date:'short'}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="actions">
     <th cdk-header-cell *cdkHeaderCellDef> Actions</th>
     <td cdk-cell *cdkCellDef="let element">
-      <ng-container  [ngTemplateOutlet]="actionsTpl" [ngTemplateOutletContext]="{$implicit:element}"></ng-container>
+      <ng-container [ngTemplateOutlet]="actionsTpl" [ngTemplateOutletContext]="{$implicit:element}"></ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container cdkColumnDef="disclaimer">
+    <td cdk-footer-cell *cdkFooterCellDef colspan="8">
+      <div class="row list-footer">
+        <div class="col-6">
+          <div class="list-footer-left">
+            <div class="f-s-12">
+              items per page:&nbsp;<span class="items-per-page">{{itemsPerPage}}</span>
+            </div>
+            <div style="margin-left:30px" class="f-s-12">{{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
+              {{(currentPage$.value*itemsPerPage)}}</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="float-right">
+            <ngb-pagination [rotate]="true" [maxSize]="maxPaginationSize" [boundaryLinks]="true"
+              [collectionSize]="tableDataSource$.value.length" [pageSize]="pageSize$.value" [page]="currentPage$.value"
+              (pageChange)="currentPage$.next($event)">
+            </ngb-pagination>
+          </div>
+        </div>
+      </div>
     </td>
   </ng-container>
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+  <tr cdk-footer-row *cdkFooterRowDef="['disclaimer']" class="example-second-footer-row"></tr>
+
 </table>

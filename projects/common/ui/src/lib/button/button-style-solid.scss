@@ -1,0 +1,44 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+@mixin generate-button-solid($color) {
+  background: $color;
+  border: 2px solid $color;
+
+  &:hover {
+    background: darken($color, 10%);
+    border: 2px solid darken($color, 10%);
+  }
+
+  &:active {
+    background: darken($color, 12%);
+    border: 2px solid darken($color, 12%);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background: lighten($color, 15%);
+    border: 2px solid lighten($color, 10%);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+@mixin generate-solid-buttons {
+  &.button-style-solid {
+    &.button-color-main {
+      @include generate-button-solid($main)
+    }
+
+    &.button-color-sub-main {
+      @include generate-button-solid($sub-main)
+    }
+    &.button-color-light {
+      @include generate-button-solid($light)
+    }
+
+    &.button-color-transparent {
+      @include generate-button-solid($transparent)
+    }
+  }
+}
