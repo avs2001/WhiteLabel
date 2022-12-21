@@ -16,7 +16,6 @@ import { APLayoutComponent } from './components/layout/layout.component';
     AppComponent,
     HomeComponent,
     APDeviceComponent,
-    APUserComponent,
     APTenantComponent
   ],
   imports: [
@@ -27,6 +26,7 @@ import { APLayoutComponent } from './components/layout/layout.component';
     HeaderComponent,
     HeaderDirective,
     APLayoutComponent,
+    APUserComponent
   ],
   bootstrap: [AppComponent]
 })

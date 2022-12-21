@@ -30,6 +30,12 @@
       "@common/ui": [
         "dist/common/ui"
       ],
+      "@common/pipes/*": [
+        "dist/common/pipes/*"
+      ],
+      "@common/pipes": [
+        "dist/common/pipes"
+      ],
       "device": [
         "dist/device"
       ],
@@ -38,6 +44,9 @@
       ],
       "tenant": [
         "dist/tenant"
+      ],
+      "user/*": [
+        "dist/user/*"
       ],
       "user": [
         "dist/user"
