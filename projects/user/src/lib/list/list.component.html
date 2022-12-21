@@ -1,43 +1,46 @@
-<kbm-list-wrapper>
-  <table cdk-table [dataSource]="dataSource" class="main-list">
-    <ng-container cdkColumnDef="username">
-      <th cdk-header-cell *cdkHeaderCellDef> Username </th>
-      <td cdk-cell *cdkCellDef="let element" class="list-main-column"> {{element.username}} </td>
-    </ng-container>
+<table cdk-table [dataSource]="dataSource" class="main-list">
+  <ng-container cdkColumnDef="username">
+    <th cdk-header-cell *cdkHeaderCellDef> Username </th>
+    <td cdk-cell *cdkCellDef="let element" class="list-main-column"> {{element.username}} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="firstName">
-      <th cdk-header-cell *cdkHeaderCellDef> First Name </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.firstName}} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="firstName">
+    <th cdk-header-cell *cdkHeaderCellDef> First Name </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="lastName">
-      <th cdk-header-cell *cdkHeaderCellDef> Last Name </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.lastName}} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="lastName">
+    <th cdk-header-cell *cdkHeaderCellDef> Last Name </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="email">
-      <th cdk-header-cell *cdkHeaderCellDef> Email </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="email">
+    <th cdk-header-cell *cdkHeaderCellDef> Email </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="userType">
-      <th cdk-header-cell *cdkHeaderCellDef> Role </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.userType}} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="userType">
+    <th cdk-header-cell *cdkHeaderCellDef> Role </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.userType}} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="isActive">
-      <th cdk-header-cell *cdkHeaderCellDef> Active </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.isActive | yesNo }} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="isActive">
+    <th cdk-header-cell *cdkHeaderCellDef> Active </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.isActive | yesNo }} </td>
+  </ng-container>
 
-    <ng-container cdkColumnDef="lastLoginTime">
-      <th cdk-header-cell *cdkHeaderCellDef> Last Login Time </th>
-      <td cdk-cell *cdkCellDef="let element"> {{element.lastLoginTime | date:'short'}} </td>
-    </ng-container>
+  <ng-container cdkColumnDef="lastLoginTime">
+    <th cdk-header-cell *cdkHeaderCellDef> Last Login Time </th>
+    <td cdk-cell *cdkCellDef="let element"> {{element.lastLoginTime | date:'short'}} </td>
+  </ng-container>
 
-    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</kbm-list-wrapper>
+  <ng-container cdkColumnDef="actions">
+    <th cdk-header-cell *cdkHeaderCellDef> Actions</th>
+    <td cdk-cell *cdkCellDef="let element">
+      <ng-container  [ngTemplateOutlet]="actionsTpl" [ngTemplateOutletContext]="{$implicit:element}"></ng-container>
+    </td>
+  </ng-container>
 
-<!-- {{true | yesNo}} -->
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+</table>

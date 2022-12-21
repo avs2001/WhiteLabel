@@ -1,11 +1,11 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { BaseUser, UserTypes } from '../user.model';
-import { Component } from '@angular/core';
+import { Component, ContentChild, TemplateRef } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CdkTableModule } from '@angular/cdk/table';
 import { YesNoPipe } from '@common/pipes';
-import { ListWrapperComponent } from '@common/ui';
+import { ListActionsDirective } from '@common/directives';
 
 const ELEMENT_DATA: BaseUser[] = [
     {
@@ -58,14 +58,24 @@ const ELEMENT_DATA: BaseUser[] = [
 @Component({
     selector: 'kbm-user-list',
     standalone: true,
-    imports: [CommonModule, ListWrapperComponent, CdkTableModule, YesNoPipe, DatePipe],
+    imports: [CommonModule, CdkTableModule, YesNoPipe, DatePipe],
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss']
 })
 
 export class UserListComponent {
-    displayedColumns: string[] = ['username', 'firstName', 'lastName', 'email', 'userType', 'isActive', 'lastLoginTime'];
+    @ContentChild(ListActionsDirective)
+    set actions(action: ListActionsDirective) {
+      if (action) {
+        this.actionsTpl = action.tpl;
+        // this.displayedColumns.push('btns');
+      }
+    }
+
+    displayedColumns: string[] = ['username', 'firstName', 'lastName', 'email', 'userType', 'isActive', 'lastLoginTime', 'actions'];
     dataSource = new ExampleDataSource();
+    actionsTpl!: TemplateRef<any>;
+
     constructor() { }
 
     ngOnInit() {

@@ -9,5 +9,9 @@
 </div>
 
 <div>
-    <kbm-user-list></kbm-user-list>
+    <kbm-user-list>
+        <ng-container *kbmListActions="let row">
+            <button>EDIT</button>
+        </ng-container>
+    </kbm-user-list>
 </div>

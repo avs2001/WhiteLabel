@@ -167,7 +167,8 @@
               }
             ],
             "styles": [
-              "theme/styles.scss",
+              "dist/common/ui/styles/styles.scss",
+              "dist/common/ui/styles/main-list.scss",
               "projects/admin-portal/src/styles.scss"
             ],
             "scripts": []
