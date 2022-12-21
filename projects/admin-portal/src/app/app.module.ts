@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { APDeviceComponent } from './pages/device/device.component';
 import { HomeComponent } from './pages/home/home.component';
 import { APLayoutComponent } from './components/layout/layout.component';
+import { ActiveRouteDirective } from '@common/directives';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { APLayoutComponent } from './components/layout/layout.component';
     AppRoutingModule,
     HeaderComponent,
     HeaderDirective,
+    ActiveRouteDirective,
     APLayoutComponent,
     APUserComponent
   ],

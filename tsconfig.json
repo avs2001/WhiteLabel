@@ -24,6 +24,12 @@
       "dom"
     ],
     "paths": {
+      "@common/directives/*": [
+        "dist/common/directives/*"
+      ],
+      "@common/directives": [
+        "dist/common/directives"
+      ],
       "@common/ui/*": [
         "dist/common/ui/*"
       ],
