@@ -1,9 +1,5 @@
 import { InjectionToken } from "@angular/core";
-import { Router } from "@angular/router";
-import { LogoutMenuItem, MenuItem, RouterMenuItem } from "./sidebar.utils";
-
-
-
+import { MenuItem } from "@common/utils";
 
 export const CLIENT_LOGO_ICON: InjectionToken<string> = new InjectionToken<string>('CLIENT_LOGO_ICON', {
     factory: () => ('/assets/icons/logo.svg'),

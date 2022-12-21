@@ -42,6 +42,9 @@
       "@common/pipes": [
         "dist/common/pipes"
       ],
+      "@common/utils": [
+        "dist/common/utils"
+      ],
       "device": [
         "dist/device"
       ],

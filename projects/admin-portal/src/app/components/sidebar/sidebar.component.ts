@@ -3,7 +3,7 @@ import { Component, HostBinding, Inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CLIENT_LOGO_ICON, NAVIGATION_ITEMS } from './sidebar.tokens';
 import { MatListItem, MatListModule } from '@angular/material/list';
-import { MenuItem, RouterMenuItem } from './sidebar.utils';
+import { MenuItem, RouterMenuItem } from '@common/utils';
 import { navigationItemsProvider } from './sidebar.const';
 import { Router, RouterModule } from '@angular/router';
 import { ActiveRouteDirective } from '@common/directives';

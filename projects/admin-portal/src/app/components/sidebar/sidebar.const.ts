@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { NAVIGATION_ITEMS } from './sidebar.tokens';
-import { LogoutMenuItem, RouterMenuItem } from './sidebar.utils';
+import { LogoutMenuItem, RouterMenuItem } from '@common/utils';
 
 export const navigationItemsProvider = {
     provide: NAVIGATION_ITEMS,
