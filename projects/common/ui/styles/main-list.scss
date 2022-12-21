@@ -45,6 +45,7 @@ table.main-list>tfoot:not(:last-child) {
 table.main-list th {
   padding: 20px;
 }
+
 table.main-list td {
   padding: 10px 20px;
 }
@@ -56,7 +57,7 @@ table.main-list th {
   font-size: 12px;
 }
 
-table.main-list td {
+table.main-list tr {
   color: var(--main-color);
   font-weight: 500;
   font-size: 14px;
@@ -69,4 +70,10 @@ table.main-list td.list-main-column {
 
 .cdk-row:nth-child(even) {
   background-color: var(--main-bg-color);
+}
+
+.cdk-row:hover .cdk-cell{
+  background-color: var(--main-color);
+  color: white !important;
+
 }

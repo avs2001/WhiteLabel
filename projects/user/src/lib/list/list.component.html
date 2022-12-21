@@ -1,15 +1,13 @@
-<div class="form-inline">
-  <div class="form-group">
-    <div class="input-group mr-3">
-      <input type="text" class="form-control" placeholder="Search..." [formControl]="searchFormControl">
-      <!-- <div class="input-group-append">
-        <button class="btn btn-outline-secondary" (click)="searchFormControl.setValue('')">
-          x
-        </button>
-      </div> -->
-    </div>
+<div class="list-header">
+  <div class="page-sub-title">
+    User Management
+  </div>
+  <div class="input-container">
+    <img src="/assets/icons/Vector.svg" class="icon">
+    <input class="form-control input-field" type="text" placeholder="Search..." [formControl]="searchFormControl">
   </div>
 </div>
+
 
 <table cdk-table [dataSource]="dataOnPage$" class="main-list">
   <ng-container cdkColumnDef="username">
@@ -21,23 +19,23 @@
   </ng-container>
 
   <ng-container cdkColumnDef="firstName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('firstName')"> 
-      First Name 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('firstName')">
+      First Name
       <span *ngIf="sortKey$.value === 'firstName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.firstName}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="lastName">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastName')"> 
-      Last Name 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastName')">
+      Last Name
       <span *ngIf="sortKey$.value === 'lastName'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
     <td cdk-cell *cdkCellDef="let element"> {{element.lastName}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="email">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('email')"> 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('email')">
       Email
       <span *ngIf="sortKey$.value === 'email'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
@@ -45,7 +43,7 @@
   </ng-container>
 
   <ng-container cdkColumnDef="userType">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('userType')"> 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('userType')">
       Role
       <span *ngIf="sortKey$.value === 'userType'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
@@ -53,7 +51,7 @@
   </ng-container>
 
   <ng-container cdkColumnDef="isActive">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('isActive')"> 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('isActive')">
       Active
       <span *ngIf="sortKey$.value === 'isActive'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
@@ -61,7 +59,7 @@
   </ng-container>
 
   <ng-container cdkColumnDef="lastLoginTime">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastLoginTime')"> 
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('lastLoginTime')">
       Last Login Time
       <span *ngIf="sortKey$.value === 'lastLoginTime'">{{ sortDirection$.value === 'asc' ? '↥' : '↧' }}</span>
     </th>
@@ -100,7 +98,7 @@
   </ng-container>
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;" (mouseover)="mouseo($event)"></tr>
   <tr cdk-footer-row *cdkFooterRowDef="['disclaimer']" class="example-second-footer-row"></tr>
 
 </table>

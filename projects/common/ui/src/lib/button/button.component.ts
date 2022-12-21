@@ -31,7 +31,6 @@ export class ButtonComponent {
 
   @HostBinding('class')
   get classes(): string {
-    console.log(this.style)
     return `${this.style} ${this.size} ${this.shape} ${this.color}`
   }
 }

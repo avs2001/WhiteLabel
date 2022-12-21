@@ -25,13 +25,20 @@ ngb-pagination ::ng-deep ul {
   align-items: center !important;
 }
 
+.list-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .list-footer {
   font-weight: 500;
   align-items: center;
   color: var(--light-color);
 }
 
-.list-footer-left ::ng-deep{
+.list-footer-left ::ng-deep {
   display: flex;
 }
 
@@ -43,4 +50,29 @@ ngb-pagination ::ng-deep ul {
   font-size: 12px !important;
   color: var(--main-color);
   font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.icon {
+  color: #fff;
+  min-width: 20px;
+  width: 20px;
+  position: absolute;
+  text-align: center;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  padding: 14px 54px;
+  border-radius: 24px;
+  border-color: var(--list-border-color);
+  width: 260px;
 }

@@ -29,7 +29,7 @@ export class UserListComponent {
         lastName: 'Last Name 1',
         username: 'Username 1',
         email: 'Email 1',
-        userType: UserTypes.SuperAdmin,
+        userType: UserTypes.ITAdmin,
         phone: '+306988582965',
         isActive: true,
         isPendingActivation: false,
@@ -329,7 +329,8 @@ export class UserListComponent {
   }
 
   hideVisuallyHiddenBug() {
-    (document.getElementsByClassName('visually-hidden')[0] as HTMLElement).style.display = 'none'
+    if (document.getElementsByClassName('visually-hidden')[0])
+      (document.getElementsByClassName('visually-hidden')[0] as HTMLElement).style.display = 'none'
   }
 
   adjustSort(key: string) {
@@ -344,5 +345,9 @@ export class UserListComponent {
 
     this.sortKey$.next(key);
     this.sortDirection$.next('asc');
+  }
+
+  mouseo(event: any) {
+    console.log(event.fromElement)
   }
 }
