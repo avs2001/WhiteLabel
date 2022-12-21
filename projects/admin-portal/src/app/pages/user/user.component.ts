@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from "@angular/core";
 import { HeaderDirective } from '@common/ui';
-import { UserListComponent } from 'projects/user/shared';
+import { UserListComponent } from 'user';
 
 @Component({
     selector: 'kbm-ap-user',

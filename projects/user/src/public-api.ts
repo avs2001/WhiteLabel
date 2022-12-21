@@ -1,2 +1,3 @@
-export * from './lib/user.component';
-export * from './lib/user.module';
+export * from './lib/list/list.component'
+export * from './lib/user.model'
+ 

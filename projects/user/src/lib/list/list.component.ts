@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { BaseUser, UserTypes } from './../user.model';
+import { BaseUser, UserTypes } from '../user.model';
 import { Component } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
