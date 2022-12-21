@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContentComponent, DrawerComponent, HeaderComponent, SideComponent, ToolbarComponent } from '@common/ui/layout';
+import { ContentComponent, DrawerComponent, HeaderComponent, SideComponent, ToolbarComponent } from '@common/ui';
 import { APSidebarComponent } from '../sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from "@angular/core";
-import { HeaderDirective } from '@common/ui/layout';
+import { HeaderDirective } from '@common/ui';
 import { UserListComponent } from 'projects/user/shared';
 
 @Component({

@@ -25,7 +25,7 @@
   </mat-list-item>
   <mat-list-item *ngFor="let navigationItem of navigationItems"
     [class]="navigationItem.matListItemExtraClass?.join(' ')" (click)="navigationItem.action()"
-    routerLinkActive="active">
+    [class.active]="isActive(navigationItem)">
     <div class="item">
       <img class="item-img" [src]="navigationItem.icon">
       <div class="item-txt" mat-line *ngIf="open">{{navigationItem.txt}}</div>

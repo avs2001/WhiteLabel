@@ -1,7 +1,6 @@
-/*
- * Public API Surface of ui
- */
-
-export * from './lib/ui.service';
-export * from './lib/ui.component';
-export * from './lib/ui.module';
+export * from "./lib/layout/header/header.component";
+export * from "./lib/layout/header/header.directive";
+export * from "./lib/layout/content/content.component";
+export * from "./lib/layout/drawer/drawer.component";
+export * from "./lib/layout/side/side.component";
+export * from "./lib/layout/toolbar/toolbar.component";
