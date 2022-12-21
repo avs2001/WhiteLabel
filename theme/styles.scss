@@ -1,8 +1,9 @@
 :root {
     --main-color: #153254;
     --main-bg-color: #F0F3F8;
-    --light-blue: #28486D;
-    --lighter-blue: #8BA3BE
+    --sub-main-color: #28486D;
+    --light-color: #8BA3BE;
+    --list-border-color: #D8E0EE;
 }
 
 * {
@@ -11,14 +12,14 @@
 }
 
 .page-title,
-.page-sub-title {
+.page-sub-title,
+.list-main-column {
     color: var(--main-color);
     font-weight: 700;
 }
 
 .page-title {
     font-size: 32px;
-
 }
 
 .page-sub-title {

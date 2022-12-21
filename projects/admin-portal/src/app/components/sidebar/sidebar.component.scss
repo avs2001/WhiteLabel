@@ -11,7 +11,7 @@ mat-list-item {
     border-radius: 12px !important;
 
     &:hover {
-        background-color: var(--light-blue) !important;
+        background-color: var(--sub-main-color) !important;
     }
 }
 
@@ -40,14 +40,14 @@ mat-list-item {
 }
 
 .item-logout {
-    border: 1px solid var(--light-blue);
+    border: 1px solid var(--sub-main-color);
     position: absolute;
     bottom: 30px;
     width: calc(100% - $list-padding*2) // this is because of position: absolute
 }
 
 .active {
-    background-color: var(--light-blue);
+    background-color: var(--sub-main-color);
 }
 
 .m-t-200 {

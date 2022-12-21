@@ -5,6 +5,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CdkTableModule } from '@angular/cdk/table';
 import { YesNoPipe } from '@common/pipes';
+import { ListWrapperComponent } from '@common/ui';
 
 const ELEMENT_DATA: BaseUser[] = [
     {
@@ -57,7 +58,7 @@ const ELEMENT_DATA: BaseUser[] = [
 @Component({
     selector: 'kbm-user-list',
     standalone: true,
-    imports: [CommonModule, CdkTableModule, YesNoPipe, DatePipe],
+    imports: [CommonModule, ListWrapperComponent, CdkTableModule, YesNoPipe, DatePipe],
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss']
 })
