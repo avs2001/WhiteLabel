@@ -42,6 +42,7 @@ export class ListComponent {
   set actions(action: ListActionsDirective) {
     if (action) {
       this.actionsTpl = action.tpl;
+      this.displayedColumnsKeys.push('actions')
     }
   }
 
@@ -51,7 +52,7 @@ export class ListComponent {
 
   ngOnInit() {
     this.listItems$ = new BehaviorSubject<any[]>(this.listItems);
-    this.displayedColumnsKeys = this.displayedColumnsDetails.map(el => el.key).concat(['actions'])
+    this.displayedColumnsKeys = this.displayedColumnsDetails.map(el => el.key)
     this.currentPage$ = new BehaviorSubject<number>(this.startingPage);
     this.pageSize$ = new BehaviorSubject<number>(this.itemsPerPage);
     this.sortKey$ = new BehaviorSubject<string>(this.sortKeyName);
@@ -123,6 +124,10 @@ export class ListComponent {
 
     this.sortKey$.next(key);
     this.sortDirection$.next('asc');
+  }
+
+  over(event: any){
+    console.log(event)
   }
 
 }

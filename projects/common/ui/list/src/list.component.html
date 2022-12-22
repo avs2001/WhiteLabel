@@ -6,29 +6,26 @@
 </div>
 
 <table cdk-table [dataSource]="dataOnPage$" class="main-list">
-  <ng-container *ngFor="let displayedColumnDetails of displayedColumnsDetails; let i = index">
-    <ng-container *ngIf="displayedColumnDetails.key!=='actions'">
-      <ng-container [cdkColumnDef]="displayedColumnDetails.key">
-        <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort(displayedColumnDetails.key)">
-          {{displayedColumnDetails.header}}
-          <span *ngIf="sortKey$.value === displayedColumnDetails.key">{{ sortDirection$.value === 'asc' ? '↥' : '↧'
-            }}</span>
-        </th>
-        <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
-          <container-element [ngSwitch]="displayedColumnDetails.pipe">
-            <div *ngSwitchCase="PipeName.YES_NO">
-              {{element[displayedColumnDetails.key] | yesNo}}
-            </div>
-            <div *ngSwitchCase="PipeName.DATE">
-              {{element[displayedColumnDetails.key] | date:datePipeFormat}}
-            </div>
-            <div *ngSwitchDefault>
-              {{element[displayedColumnDetails.key]}}
-            </div>
-          </container-element>
-        </td>
-      </ng-container>
-    </ng-container>
+  <ng-container *ngFor="let displayedColumnDetails of displayedColumnsDetails; let i = index"
+    [cdkColumnDef]="displayedColumnDetails.key">
+    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort(displayedColumnDetails.key)">
+      {{displayedColumnDetails.header}}
+      <span *ngIf="sortKey$.value === displayedColumnDetails.key">{{ sortDirection$.value === 'asc' ? '↥' : '↧'
+        }}</span>
+    </th>
+    <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
+      <container-element [ngSwitch]="displayedColumnDetails.pipe">
+        <div *ngSwitchCase="PipeName.YES_NO">
+          {{element[displayedColumnDetails.key] | yesNo}}
+        </div>
+        <div *ngSwitchCase="PipeName.DATE">
+          {{element[displayedColumnDetails.key] | date:datePipeFormat}}
+        </div>
+        <div *ngSwitchDefault>
+          {{element[displayedColumnDetails.key]}}
+        </div>
+      </container-element>
+    </td>
   </ng-container>
 
   <ng-container cdkColumnDef="actions">
@@ -63,7 +60,7 @@
   </ng-container>
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumnsKeys"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumnsKeys;"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumnsKeys;" (mouseover)="over($event)"></tr>
   <tr cdk-footer-row *cdkFooterRowDef="['pagination']" class="example-second-footer-row"></tr>
 
 </table>
