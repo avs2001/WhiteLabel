@@ -23,6 +23,9 @@ export class ListSearchComponent {
     ) { }
 
     ngOnInit() {
+        if(!this.listName){
+            console.error('[ERROR] - LIST NAME NEEDS TO BE DEFINED AND NE THE SAME WITH kbm-list IN ORDER TO BE ABLE TO SEARCH THE LIST')
+        }
         this.subscriptions.push(
             this.searchFormControl.valueChanges.subscribe(res => {
                 this.listService.setSearchListListener(this.listName, res)

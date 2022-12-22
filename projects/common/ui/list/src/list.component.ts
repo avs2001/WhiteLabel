@@ -56,6 +56,9 @@ export class ListComponent {
   ) { }
 
   ngOnInit() {
+    if (!this.listName) {
+      console.error('[ERROR] - LIST NAME NEEDS TO BE DEFINED AND NE THE SAME WITH kbm-list-search IN ORDER TO BE ABLE TO SEARCH THE LIST')
+    }
     this.listItems$ = new BehaviorSubject<any[]>(this.listItems);
     this.displayedColumnsKeys = this.displayedColumnsDetails.map(el => el.key)
     this.currentPage$ = new BehaviorSubject<number>(this.startingPage);
@@ -130,7 +133,7 @@ export class ListComponent {
     this.sortDirection$.next('asc');
   }
 
-  over(event: any){
+  over(event: any) {
   }
 
 }
