@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from "@angular/core";
 import { ListActionsDirective } from '@common/directives';
 import { ButtonColor, ButtonComponent, ButtonShape, ButtonSize, ButtonStyle, HeaderDirective } from '@common/ui';
-import { ListColumnDetails, ListComponent } from '@common/ui/list';
+import { ListColumnDetails, ListComponent, ListSearchComponent } from '@common/ui/list';
 import { BaseUser, UserListComponent, UserTypes } from 'user';
 import { PipeName } from '@common/pipes';
 
 @Component({
     selector: 'kbm-ap-user',
     standalone: true,
-    imports: [CommonModule, ListActionsDirective, ButtonComponent, UserListComponent, HeaderDirective, ListComponent],
+    imports: [CommonModule, ListSearchComponent, ListActionsDirective, ButtonComponent, UserListComponent, HeaderDirective, ListComponent],
     templateUrl: './user.component.html',
     styleUrls: ['./user.component.scss']
 })

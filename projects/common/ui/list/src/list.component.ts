@@ -1,3 +1,4 @@
+import { ListSearchComponent } from './list-search/list-search.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component, ContentChild, Input, Pipe, TemplateRef, HostBinding } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, take } from 'rxjs';
@@ -8,11 +9,12 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchInputComponent } from '@common/ui';
 import { ListColumnDetails } from './list.model';
+import { ListService } from './list.service';
 
 @Component({
   selector: 'kbm-list',
   standalone: true,
-  imports: [CommonModule, NgbPaginationModule, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe, SearchInputComponent],
+  imports: [CommonModule, NgbPaginationModule, ListSearchComponent, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe, SearchInputComponent],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
@@ -34,7 +36,6 @@ export class ListComponent {
   currentPage$!: BehaviorSubject<number>;
   pageSize$!: BehaviorSubject<number>;
   dataOnPage$ = new BehaviorSubject<any[]>([]);
-  searchFormControl = new FormControl();
   sortKey$!: BehaviorSubject<string>;
   sortDirection$ = new BehaviorSubject<string>('asc');
 
@@ -48,7 +49,9 @@ export class ListComponent {
 
   actionsTpl!: TemplateRef<any>;
 
-  constructor() { }
+  constructor(
+    private listService: ListService
+  ) { }
 
   ngOnInit() {
     this.listItems$ = new BehaviorSubject<any[]>(this.listItems);
@@ -69,7 +72,7 @@ export class ListComponent {
       this.tableDataSource$.next(Object.values(listItemsData));
     });
 
-    combineLatest([this.listItems$, this.searchFormControl.valueChanges, this.sortKey$, this.sortDirection$])
+    combineLatest([this.listItems$, this.listService.searchListListener, this.sortKey$, this.sortDirection$])
       .subscribe(([changedListItemsData, searchTerm, sortKey, sortDirection]) => {
         const listItemsArray = Object.values(changedListItemsData);
         let filteredItems: any[];
@@ -95,7 +98,6 @@ export class ListComponent {
         this.tableDataSource$.next(sortedListItems);
       });
 
-    this.searchFormControl.setValue('');
   }
 
   ngAfterViewInit() {

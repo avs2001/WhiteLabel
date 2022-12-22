@@ -3,6 +3,13 @@
         Tenant
     </div>
 </ng-container>
+<div class="list-header-horizontal">
+    <div class="page-sub-title">
+        User Management
+    </div>
+    <!-- <kbm-search [formControl]="searchFormControl"></kbm-search> -->
+    <kbm-list-search></kbm-list-search>
+</div>
 
 <kbm-list title="Tenant Management" [listItems]="tenancies" sortKeyName="name"
     [displayedColumnsDetails]="displayedColumnsDetails">

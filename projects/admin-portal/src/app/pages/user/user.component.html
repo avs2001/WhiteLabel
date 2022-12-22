@@ -4,17 +4,17 @@
     </div>
 </ng-container>
 
-<div>
-    <kbm-user-list>
-        <ng-container *kbmListActions="let row">
-            <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
-                [color]="ButtonColor.LIGHT">View</div>
-        </ng-container>
-    </kbm-user-list>
+<div class="list-header-horizontal">
+    <div class="page-sub-title">
+        User Management
+    </div>
+    <!-- <kbm-search [formControl]="searchFormControl"></kbm-search> -->
+    <kbm-list-search></kbm-list-search>
 </div>
 
 <div style="margin-top:60px">
-    <kbm-list title="User Management" [listItems]="users" sortKeyName="username" [displayedColumnsDetails]="displayedColumnsDetails">
+    <kbm-list title="User Management" [listItems]="users" sortKeyName="username"
+        [displayedColumnsDetails]="displayedColumnsDetails">
         <ng-container *kbmListActions="let row">
             <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
                 [color]="ButtonColor.LIGHT">View</div>

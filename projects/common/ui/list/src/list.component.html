@@ -1,10 +1,3 @@
-<div class="list-header">
-  <div class="page-sub-title">
-    {{title}}
-  </div>
-  <kbm-search [formControl]="searchFormControl"></kbm-search>
-</div>
-
 <table cdk-table [dataSource]="dataOnPage$" class="main-list">
   <ng-container *ngFor="let displayedColumnDetails of displayedColumnsDetails; let i = index"
     [cdkColumnDef]="displayedColumnDetails.key">
@@ -46,8 +39,15 @@
             <div class="f-s-12">
               items per page:&nbsp;<span class="items-per-page">{{itemsPerPage}}</span>
             </div>
-            <div style="margin-left:40px" class="f-s-12">{{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
-              {{(currentPage$.value*itemsPerPage)}}</div>
+            <div style="margin-left:40px" class="f-s-12">
+              {{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
+              <span *ngIf="itemsPerPage < listItems.length; else showItemsLength">
+                {{(currentPage$.value*itemsPerPage)}}
+              </span>
+              <ng-template #showItemsLength>
+                {{listItems.length}}
+              </ng-template>
+            </div>
           </div>
         </div>
         <div class="col-6">

@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { PipeName } from "@common/pipes";
-import { ListColumnDetails, ListComponent } from "@common/ui/list";
+import { ListColumnDetails, ListComponent, ListSearchComponent } from "@common/ui/list";
 import { BaseTenancy } from "tenant";
 import { ButtonColor, ButtonComponent, ButtonShape, ButtonSize, ButtonStyle, HeaderDirective } from '@common/ui';
 import { ListActionsDirective } from "@common/directives";
@@ -10,7 +10,7 @@ import { ListActionsDirective } from "@common/directives";
     selector: 'kbm-ap-tenant',
     templateUrl: './tenant.component.html',
     standalone: true,
-    imports: [CommonModule, ListActionsDirective, ListComponent, HeaderDirective, ButtonComponent],
+    imports: [CommonModule, ListSearchComponent, ListActionsDirective, ListComponent, HeaderDirective, ButtonComponent],
     styleUrls: ['./tenant.component.scss']
 })
 
