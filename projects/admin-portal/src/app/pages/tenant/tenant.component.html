@@ -5,13 +5,31 @@
 </ng-container>
 <div class="list-header-horizontal">
     <div class="page-sub-title">
-        User Management
+        Tenancy Management 1
     </div>
     <!-- <kbm-search [formControl]="searchFormControl"></kbm-search> -->
-    <kbm-list-search></kbm-list-search>
+    <kbm-list-search [listName]="ListName.TENANCY_LIST"></kbm-list-search>
 </div>
 
-<kbm-list title="Tenant Management" [listItems]="tenancies" sortKeyName="name"
+<kbm-list [listName]="ListName.TENANCY_LIST" title="Tenant Management" [listItems]="tenancies" sortKeyName="name"
+    [displayedColumnsDetails]="displayedColumnsDetails">
+    <ng-container *kbmListActions="let row">
+        <div fooButton [style]="ButtonStyle.SOLID" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+            [color]="ButtonColor.MAIN">Edit</div>
+        <div fooButton [style]="ButtonStyle.SOLID" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+            [color]="ButtonColor.LIGHT">Delete</div>
+    </ng-container>
+</kbm-list>
+
+<div class="list-header-horizontal">
+    <div class="page-sub-title">
+        Tenancy Management 2
+    </div>
+    <!-- <kbm-search [formControl]="searchFormControl"></kbm-search> -->
+    <kbm-list-search [listName]="ListName.USER_LIST"></kbm-list-search>
+</div>
+
+<kbm-list [listName]="ListName.USER_LIST" title="Tenant Management" [listItems]="tenancies" sortKeyName="name"
     [displayedColumnsDetails]="displayedColumnsDetails">
     <ng-container *kbmListActions="let row">
         <div fooButton [style]="ButtonStyle.SOLID" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"

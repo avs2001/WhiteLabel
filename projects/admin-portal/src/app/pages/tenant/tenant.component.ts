@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { PipeName } from "@common/pipes";
-import { ListColumnDetails, ListComponent, ListSearchComponent } from "@common/ui/list";
+import { ListColumnDetails, ListComponent, ListName, ListSearchComponent } from "@common/ui/list";
 import { BaseTenancy } from "tenant";
 import { ButtonColor, ButtonComponent, ButtonShape, ButtonSize, ButtonStyle, HeaderDirective } from '@common/ui';
 import { ListActionsDirective } from "@common/directives";
@@ -19,6 +19,7 @@ export class APTenantComponent {
     public ButtonSize = ButtonSize;
     public ButtonStyle = ButtonStyle;
     public ButtonShape = ButtonShape;
+    ListName = ListName;
 
     public tenancies: BaseTenancy[] = [
         {

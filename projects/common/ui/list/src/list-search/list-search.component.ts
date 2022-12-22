@@ -1,9 +1,10 @@
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { SearchInputComponent } from "@common/ui";
 import { ListService } from '../list.service';
 import { Subscription } from 'rxjs';
+import { ListName } from '../list.enum';
 
 @Component({
     selector: 'kbm-list-search',
@@ -14,6 +15,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class ListSearchComponent {
+    @Input() listName!: ListName;
     subscriptions: Subscription[] = [];
     searchFormControl = new FormControl();
     constructor(
@@ -23,12 +25,12 @@ export class ListSearchComponent {
     ngOnInit() {
         this.subscriptions.push(
             this.searchFormControl.valueChanges.subscribe(res => {
-                this.listService.setSearchListListener(res)
+                this.listService.setSearchListListener(this.listName, res)
             })
         )
     }
-    
+
     ngOnDestroy() {
-      this.subscriptions.forEach(sub => sub.unsubscribe());
+        this.subscriptions.forEach(sub => sub.unsubscribe());
     }
 }

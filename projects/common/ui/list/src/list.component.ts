@@ -10,6 +10,7 @@ import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchInputComponent } from '@common/ui';
 import { ListColumnDetails } from './list.model';
 import { ListService } from './list.service';
+import { ListName } from './list.enum';
 
 @Component({
   selector: 'kbm-list',
@@ -20,6 +21,7 @@ import { ListService } from './list.service';
 })
 
 export class ListComponent {
+  @Input() listName!: ListName;
   @Input() title!: string;
   @Input() startingPage: number = 1;
   @Input() datePipeFormat: string = 'MMM d, y, h:mm:ss a';
@@ -73,10 +75,10 @@ export class ListComponent {
     });
 
     combineLatest([this.listItems$, this.listService.searchListListener, this.sortKey$, this.sortDirection$])
-      .subscribe(([changedListItemsData, searchTerm, sortKey, sortDirection]) => {
+      .subscribe(([changedListItemsData, searchTerms, sortKey, sortDirection]) => {
         const listItemsArray = Object.values(changedListItemsData);
         let filteredItems: any[];
-
+        let searchTerm = searchTerms.get(this.listName)!;
         if (!searchTerm) {
           filteredItems = listItemsArray;
         } else {
@@ -129,7 +131,6 @@ export class ListComponent {
   }
 
   over(event: any){
-    console.log(event)
   }
 
 }
