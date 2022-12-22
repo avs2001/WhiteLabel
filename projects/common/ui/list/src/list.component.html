@@ -14,21 +14,19 @@
           <span *ngIf="sortKey$.value === displayedColumnDetails.key">{{ sortDirection$.value === 'asc' ? '↥' : '↧'
             }}</span>
         </th>
-        <container-element [ngSwitch]="displayedColumnDetails.pipe">
-          <div *ngSwitchCase="PipeName.YES_NO">
-            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
-              {{element[displayedColumnDetails.key] | yesNo}}</td>
-          </div>
-          <div *ngSwitchCase="PipeName.DATE">
-            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
-              {{element[displayedColumnDetails.key] | date:datePipeFormat}}</td>
-          </div>
-          <div *ngSwitchDefault>
-            {{displayedColumnDetails}}
-            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
-              {{element[displayedColumnDetails.key]}} </td>
-          </div>
-        </container-element>
+        <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
+          <container-element [ngSwitch]="displayedColumnDetails.pipe">
+            <div *ngSwitchCase="PipeName.YES_NO">
+              {{element[displayedColumnDetails.key] | yesNo}}
+            </div>
+            <div *ngSwitchCase="PipeName.DATE">
+              {{element[displayedColumnDetails.key] | date:datePipeFormat}}
+            </div>
+            <div *ngSwitchDefault>
+              {{element[displayedColumnDetails.key]}}
+            </div>
+          </container-element>
+        </td>
       </ng-container>
     </ng-container>
   </ng-container>
