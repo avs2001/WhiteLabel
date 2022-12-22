@@ -7,8 +7,17 @@
 <div>
     <kbm-user-list>
         <ng-container *kbmListActions="let row">
-            <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL" [color]="ButtonColor.LIGHT">View</div>
- 
+            <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+                [color]="ButtonColor.LIGHT">View</div>
         </ng-container>
     </kbm-user-list>
+</div>
+
+<div style="margin-top:60px">
+    <kbm-list [listItems]="users" sortKeyName="username" [displayedColumnsDetails]="displayedColumnsDetails">
+        <ng-container *kbmListActions="let row">
+            <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+                [color]="ButtonColor.LIGHT">View</div>
+        </ng-container>
+    </kbm-list>
 </div>

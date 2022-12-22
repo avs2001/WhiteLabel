@@ -1,0 +1,71 @@
+<div class="list-header">
+  <div class="page-sub-title">
+    User Management
+  </div>
+  <kbm-search [formControl]="searchFormControl"></kbm-search>
+</div>
+
+<table cdk-table [dataSource]="dataOnPage$" class="main-list">
+  <ng-container *ngFor="let displayedColumnDetails of displayedColumnsDetails; let i = index">
+    <ng-container *ngIf="displayedColumnDetails.key!=='actions'">
+      <ng-container [cdkColumnDef]="displayedColumnDetails.key">
+        <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort(displayedColumnDetails.key)">
+          {{displayedColumnDetails.header}}
+          <span *ngIf="sortKey$.value === displayedColumnDetails.key">{{ sortDirection$.value === 'asc' ? '↥' : '↧'
+            }}</span>
+        </th>
+        <container-element [ngSwitch]="displayedColumnDetails.pipe">
+          <div *ngSwitchCase="PipeName.YES_NO">
+            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
+              {{element[displayedColumnDetails.key] | yesNo}}</td>
+          </div>
+          <div *ngSwitchCase="PipeName.DATE">
+            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
+              {{element[displayedColumnDetails.key] | date:datePipeFormat}}</td>
+          </div>
+          <div *ngSwitchDefault>
+            {{displayedColumnDetails}}
+            <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">
+              {{element[displayedColumnDetails.key]}} </td>
+          </div>
+        </container-element>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-container cdkColumnDef="actions">
+    <th cdk-header-cell *cdkHeaderCellDef> Actions</th>
+    <td cdk-cell *cdkCellDef="let element">
+      <ng-container [ngTemplateOutlet]="actionsTpl" [ngTemplateOutletContext]="{$implicit:element}"></ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container cdkColumnDef="pagination">
+    <td cdk-footer-cell *cdkFooterCellDef colspan="8">
+      <div class="row list-footer">
+        <div class="col-6">
+          <div class="list-footer-left">
+            <div class="f-s-12">
+              items per page:&nbsp;<span class="items-per-page">{{itemsPerPage}}</span>
+            </div>
+            <div style="margin-left:40px" class="f-s-12">{{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
+              {{(currentPage$.value*itemsPerPage)}}</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="float-right">
+            <ngb-pagination [rotate]="true" [maxSize]="maxPaginationSize" [boundaryLinks]="true"
+              [collectionSize]="tableDataSource$.value.length" [pageSize]="pageSize$.value" [page]="currentPage$.value"
+              (pageChange)="currentPage$.next($event)">
+            </ngb-pagination>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumnsKeys"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumnsKeys;"></tr>
+  <tr cdk-footer-row *cdkFooterRowDef="['pagination']" class="example-second-footer-row"></tr>
+
+</table>
