@@ -18,6 +18,7 @@ import { ListColumnDetails } from './list.model';
 })
 
 export class ListComponent {
+  @Input() title!: string;
   @Input() startingPage: number = 1;
   @Input() datePipeFormat: string = 'MMM d, y, h:mm:ss a';
   @Input() itemsPerPage: number = 10;
@@ -30,11 +31,11 @@ export class ListComponent {
   PipeName = PipeName
 
   tableDataSource$ = new BehaviorSubject<any[]>([]);
-  currentPage$ = new BehaviorSubject<number>(this.startingPage);
-  pageSize$ = new BehaviorSubject<number>(this.itemsPerPage);
+  currentPage$!: BehaviorSubject<number>;
+  pageSize$!: BehaviorSubject<number>;
   dataOnPage$ = new BehaviorSubject<any[]>([]);
   searchFormControl = new FormControl();
-  sortKey$ = new BehaviorSubject<string>(this.sortKeyName);
+  sortKey$!: BehaviorSubject<string>;
   sortDirection$ = new BehaviorSubject<string>('asc');
 
   @ContentChild(ListActionsDirective)
@@ -51,6 +52,9 @@ export class ListComponent {
   ngOnInit() {
     this.listItems$ = new BehaviorSubject<any[]>(this.listItems);
     this.displayedColumnsKeys = this.displayedColumnsDetails.map(el => el.key).concat(['actions'])
+    this.currentPage$ = new BehaviorSubject<number>(this.startingPage);
+    this.pageSize$ = new BehaviorSubject<number>(this.itemsPerPage);
+    this.sortKey$ = new BehaviorSubject<string>(this.sortKeyName);
 
     combineLatest([this.tableDataSource$, this.currentPage$, this.pageSize$])
       .subscribe(([allSources, currentPage, pageSize]) => {
@@ -100,9 +104,10 @@ export class ListComponent {
   // This is a bug from bootstrap which shows (current) text to active page in pagination
   hideVisuallyHiddenBug() {
     setTimeout(() => {
-      if (document.getElementsByClassName('visually-hidden')[0]) {
-        (document.getElementsByClassName('visually-hidden')[0] as HTMLElement).style.display = 'none'
-      }
+      const elementsArray = document.getElementsByClassName('visually-hidden');
+      [].forEach.call(elementsArray, (el: any) => {
+        el.style.display = 'none'
+      });
     }, 0);
   }
 

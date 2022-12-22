@@ -16,8 +16,7 @@ import { ActiveRouteDirective } from '@common/directives';
   declarations: [
     AppComponent,
     HomeComponent,
-    APDeviceComponent,
-    APTenantComponent
+    APDeviceComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +27,8 @@ import { ActiveRouteDirective } from '@common/directives';
     HeaderDirective,
     ActiveRouteDirective,
     APLayoutComponent,
-    APUserComponent
+    APUserComponent,
+    APTenantComponent
   ],
   bootstrap: [AppComponent]
 })

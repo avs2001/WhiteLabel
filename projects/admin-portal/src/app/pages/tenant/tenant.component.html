@@ -4,6 +4,12 @@
     </div>
 </ng-container>
 
-<div class="page-sub-title">
-    Tenant Management
-</div>
+<kbm-list title="Tenant Management" [listItems]="tenancies" sortKeyName="name"
+    [displayedColumnsDetails]="displayedColumnsDetails">
+    <ng-container *kbmListActions="let row">
+        <div fooButton [style]="ButtonStyle.SOLID" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+            [color]="ButtonColor.MAIN">Edit</div>
+        <div fooButton [style]="ButtonStyle.SOLID" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
+            [color]="ButtonColor.LIGHT">Delete</div>
+    </ng-container>
+</kbm-list>

@@ -330,8 +330,13 @@ export class UserListComponent {
   }
 
   hideVisuallyHiddenBug() {
-    if (document.getElementsByClassName('visually-hidden')[0])
-      (document.getElementsByClassName('visually-hidden')[0] as HTMLElement).style.display = 'none'
+    // This is a bug from bootstrap which shows (current) text to active page in pagination
+    setTimeout(() => {
+      const elementsArray = document.getElementsByClassName('visually-hidden');
+      [].forEach.call(elementsArray, (el: any) => {
+        el.style.display = 'none'
+      });
+    }, 0);
   }
 
   adjustSort(key: string) {

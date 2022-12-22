@@ -14,7 +14,7 @@
 </div>
 
 <div style="margin-top:60px">
-    <kbm-list [listItems]="users" sortKeyName="username" [displayedColumnsDetails]="displayedColumnsDetails">
+    <kbm-list title="User Management" [listItems]="users" sortKeyName="username" [displayedColumnsDetails]="displayedColumnsDetails">
         <ng-container *kbmListActions="let row">
             <div fooButton [style]="ButtonStyle.TRANSPARENT" [shape]="ButtonShape.ROUNDED" [size]="ButtonSize.SMALL"
                 [color]="ButtonColor.LIGHT">View</div>
