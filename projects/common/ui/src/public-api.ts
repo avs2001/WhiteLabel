@@ -7,3 +7,5 @@ export * from "./lib/layout/toolbar/toolbar.component";
 
 export * from './lib/button/button.component'
 export * from './lib/button/button.enum'
+
+export * from './lib/input/search/search.component'

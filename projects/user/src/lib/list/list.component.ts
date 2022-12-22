@@ -8,11 +8,12 @@ import { YesNoPipe } from '@common/pipes';
 import { ListActionsDirective } from '@common/directives';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchInputComponent } from '@common/ui';
 
 @Component({
   selector: 'kbm-user-list',
   standalone: true,
-  imports: [CommonModule, NgbModule, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe],
+  imports: [CommonModule, NgbModule, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe, SearchInputComponent],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

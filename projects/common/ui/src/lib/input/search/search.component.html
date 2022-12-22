@@ -1,0 +1,11 @@
+<!-- <div class="input-container">
+    <img src="/assets/icons/Vector.svg" class="icon">
+    <input #searchValueEl class="form-control input-field" type="text" placeholder="Search..."
+        [(ngModel)]="searchValue">
+</div> -->
+
+<div class="input-container">
+    <img src="/assets/icons/Vector.svg" class="icon">
+    <input class="form-control input-field" type="text" placeholder="Search..." [ngModel]="(input | async)"
+        (ngModelChange)="onInputChange($event)">
+</div>

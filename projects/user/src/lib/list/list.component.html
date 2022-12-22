@@ -2,10 +2,7 @@
   <div class="page-sub-title">
     User Management
   </div>
-  <div class="input-container">
-    <img src="/assets/icons/Vector.svg" class="icon">
-    <input class="form-control input-field" type="text" placeholder="Search..." [formControl]="searchFormControl">
-  </div>
+  <kbm-search [formControl]="searchFormControl"></kbm-search>
 </div>
 
 
@@ -73,7 +70,8 @@
     </td>
   </ng-container>
 
-  <ng-container cdkColumnDef="disclaimer">
+  <ng-container cdkColumnDef="pagination">
+    <!-- colspan is displayedColumns.length -->
     <td cdk-footer-cell *cdkFooterCellDef colspan="8">
       <div class="row list-footer">
         <div class="col-6">
@@ -81,7 +79,7 @@
             <div class="f-s-12">
               items per page:&nbsp;<span class="items-per-page">{{itemsPerPage}}</span>
             </div>
-            <div style="margin-left:30px" class="f-s-12">{{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
+            <div style="margin-left:40px" class="f-s-12">{{(currentPage$.value*itemsPerPage - (itemsPerPage-1))}} of
               {{(currentPage$.value*itemsPerPage)}}</div>
           </div>
         </div>
@@ -98,7 +96,7 @@
   </ng-container>
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;" (mouseover)="mouseo($event)"></tr>
-  <tr cdk-footer-row *cdkFooterRowDef="['disclaimer']" class="example-second-footer-row"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+  <tr cdk-footer-row *cdkFooterRowDef="['pagination']" class="example-second-footer-row"></tr>
 
 </table>

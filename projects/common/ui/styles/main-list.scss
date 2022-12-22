@@ -48,6 +48,7 @@ table.main-list th {
 
 table.main-list td {
   padding: 10px 20px;
+  font-size: 14px;
 }
 
 table.main-list th {
@@ -76,4 +77,52 @@ table.main-list td.list-main-column {
   background-color: var(--main-color);
   color: white !important;
 
+}
+
+.list-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-footer {
+  font-weight: 500;
+  align-items: center;
+  color: var(--light-color);
+}
+
+.list-footer-left {
+  display: flex;
+}
+
+.f-s-12 {
+  font-size: 12px !important;
+}
+
+.items-per-page {
+  font-size: 12px !important;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+ngb-pagination ul>li:not(.active)>a {
+  color: var(--light-color) !important;
+}
+
+ngb-pagination ul>li.active>a {
+  background-color: white !important;
+  font-weight: bold !important;
+  color: var(--main-color) !important;
+}
+
+ngb-pagination ul>li>a {
+  border-color: transparent !important;
+  font-size: 12px !important;
+
+}
+
+ngb-pagination ul {
+  margin-bottom: 0 !important;
+  align-items: center !important;
 }
