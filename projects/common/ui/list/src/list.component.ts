@@ -5,14 +5,14 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { PipeName, YesNoPipe } from '@common/pipes';
 import { ListActionsDirective } from '@common/directives';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchInputComponent } from '@common/ui';
 import { ListColumnDetails } from './list.model';
 
 @Component({
   selector: 'kbm-list',
   standalone: true,
-  imports: [CommonModule, NgbModule, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe, SearchInputComponent],
+  imports: [CommonModule, NgbPaginationModule, ReactiveFormsModule, FormsModule, CdkTableModule, YesNoPipe, DatePipe, SearchInputComponent],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

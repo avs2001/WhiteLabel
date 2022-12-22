@@ -254,33 +254,40 @@ export class APUserComponent {
         {
             header: 'Username',
             key: 'username',
-            main: true
+            main: true,
+            sortable: true
         },
         {
             header: 'First Name',
-            key: 'firstName'
+            key: 'firstName',
+            sortable: true
         },
         {
             header: 'Last Name',
-            key: 'lastName'
+            key: 'lastName',
+            sortable: true
         },
         {
             header: 'Email',
-            key: 'email'
+            key: 'email',
+            sortable: true
         },
         {
             header: 'Role',
-            key: 'userType'
+            key: 'userType',
+            sortable: false
         },
         {
             header: 'Is Active',
             key: 'isActive',
-            pipe: PipeName.YES_NO
+            pipe: PipeName.YES_NO,
+            sortable: false
         },
         {
             header: 'Last Login',
             key: 'lastLoginTime',
-            pipe: PipeName.DATE
+            pipe: PipeName.DATE,
+            sortable: false
         }
     ];
 

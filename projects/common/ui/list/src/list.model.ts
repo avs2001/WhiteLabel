@@ -4,5 +4,6 @@ export interface ListColumnDetails {
     header: string,
     key: string,
     main?: boolean,
-    pipe?: PipeName
+    pipe?: PipeName,
+    sortable: boolean
 }

@@ -8,9 +8,12 @@
 <table cdk-table [dataSource]="dataOnPage$" class="main-list">
   <ng-container *ngFor="let displayedColumnDetails of displayedColumnsDetails; let i = index"
     [cdkColumnDef]="displayedColumnDetails.key">
-    <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort(displayedColumnDetails.key)">
+    <th cdk-header-cell *cdkHeaderCellDef
+      [ngStyle]="displayedColumnDetails.sortable?{'cursor': 'pointer'} : {'cursor': 'default'}"
+      (click)="displayedColumnDetails.sortable && adjustSort(displayedColumnDetails.key)">
       {{displayedColumnDetails.header}}
-      <span *ngIf="sortKey$.value === displayedColumnDetails.key">{{ sortDirection$.value === 'asc' ? '↥' : '↧'
+      <span *ngIf="displayedColumnDetails.sortable && sortKey$.value === displayedColumnDetails.key">{{
+        sortDirection$.value === 'asc' ? '↥' : '↧'
         }}</span>
     </th>
     <td cdk-cell *cdkCellDef="let element" [class.list-main-column]="displayedColumnDetails.main">

@@ -58,17 +58,20 @@ export class APTenantComponent {
         {
             header: 'Name',
             key: 'name',
-            main: true
+            main: true,
+            sortable: true
         },
         {
             header: 'Active',
             key: 'active',
-            pipe: PipeName.YES_NO
+            pipe: PipeName.YES_NO,
+            sortable: false
         },
         {
             header: 'Created at',
             key: 'createdAt',
-            pipe: PipeName.DATE
+            pipe: PipeName.DATE,
+            sortable: false
         }
     ];
     constructor() { }
